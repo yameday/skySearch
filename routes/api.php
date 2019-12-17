@@ -16,3 +16,13 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+#vim routes/api.php
+Route::get('/test', function() {
+    return 'Hello API';
+});
+
+#PostController
+Route::middleware('auth:api')->group(function () {
+    Route::apiResource('post', 'api\PostController');
+});
